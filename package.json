@@ -1,22 +1,41 @@
 {
   "name": "sentry-overview",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "Print the sentry overview table to see the trending.",
   "main": "index.js",
   "scripts": {
+    "lint": "standard src/**/*.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "standard --fix",
+      "git add"
+    ]
+  },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Alex Chao",
+  "license": "MIT",
   "dependencies": {
     "chalk": "^2.4.2",
     "cheerio": "^1.0.0-rc.3",
     "cli-table": "^0.3.1",
+    "debug": "^4.1.1",
     "inquirer": "^7.0.0",
     "moment": "^2.24.0",
+    "qs": "^6.9.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
     "set-cookie-parser": "^2.4.0"
+  },
+  "devDependencies": {
+    "husky": "^3.0.9",
+    "lint-staged": "^9.4.2",
+    "standard": "^14.3.1"
   }
 }
